@@ -7,7 +7,7 @@ Rails 6.1.4
 Getting Started
 To set up the application, follow these steps:
 
-Clone the repository:git clone https://github.com/ryanbiy/ryanbiy-SA-02-Week-One-Code-Challenge-Pizzas-Restaurants
+Clone the repository:git clone https://github.com/ryanbiy/pizza_restaurants_api
 Install the required gems with the commmand:bundle install
 
 Start the Rails server :rails server
