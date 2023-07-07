@@ -3,9 +3,9 @@
 one:
   restaurant: one
   pizza: one
-  price: 1
+  price: 9.99
 
 two:
   restaurant: two
   pizza: two
-  price: 1
+  price: 9.99

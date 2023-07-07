@@ -1,32 +1,28 @@
-restaurants_data = [
-  {
-    name: "Sottocasa NYC",
-    address: "298 Atlantic Ave, Brooklyn, NY 11201"
-  },
-  {
-    name: "PizzArte",
-    address: "69 W 55th St, New York, NY 10019"
-  }
-]
+require 'faker'
 
-# Seed data for Pizzas
-pizzas_data = [
-  {
-    name: "Cheese",
-    ingredients: "Dough, Tomato Sauce, Cheese"
-  },
-  {
-    name: "Pepperoni",
-    ingredients: "Dough, Tomato Sauce, Cheese, Pepperoni"
-  }
-]
-
-# Create Restaurants
-restaurants_data.each do |restaurant_data|
-  Restaurant.create(restaurant_data)
+# Seed Restaurants
+100.times do
+  Restaurant.create(
+    name: Faker::Restaurant.name,
+    address: Faker::Address.full_address
+  )
 end
 
-# Create Pizzas
-pizzas_data.each do |pizza_data|
-  Pizza.create(pizza_data)
+# Seed Pizzas
+100.times do
+  Pizza.create(
+    name: Faker::Food.dish,
+    ingredients: Faker::Food.ingredient
+  )
+end
+
+# Seed RestaurantPizzas
+Restaurant.all.each do |restaurant|
+  Pizza.all.sample(3).each do |pizza|
+    RestaurantPizza.create(
+      restaurant: restaurant,
+      pizza: pizza,
+      price: Faker::Number.between(from: 1, to: 30)
+    )
+  end
 end
